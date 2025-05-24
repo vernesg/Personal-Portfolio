@@ -4,12 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
   <title>My Personal Portfolio</title>
   <style>
     body {
       font-family: 'Poppins', sans-serif;
       background: rgba(0, 0, 0, 0.7);
-      background-image: url('https://media3.giphy.com/media/1HUfqovo7QL594o5kh/giphy.gif');
+      background-image: url('https://media2.giphy.com/media/vd5TYfojHJ0n6/giphy.gif?cid=6c09b9526jiyo1up6yhnqv70wnnhzd49ejisinfxusa9f39u&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g');
       background-size: cover;
       background-attachment: fixed;
       color: #fff;
@@ -39,21 +41,6 @@
     .home__skill {
       font-size: 1.5rem;
       color: #ccc;
-    }
-
-    .home__button, button[type="submit"] {
-      background-color: #ff4081;
-      color: white;
-      border: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 30px;
-      cursor: pointer;
-      font-weight: 500;
-      transition: background 0.3s ease;
-    }
-
-    .home__button:hover, button[type="submit"]:hover {
-      background-color: #e91e63;
     }
 
     input, textarea {
@@ -98,20 +85,22 @@
       align-items: center;
       flex-wrap: wrap;
       padding: 2rem;
+      gap: 2rem;
     }
 
     .home__information {
-      max-width: 50%;
+      max-width: 500px;
     }
 
     .home__img img {
       max-width: 250px;
       border-radius: 50%;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+      border: 5px solid orange;
+      box-shadow: 0 0 20px rgba(255, 165, 0, 0.6);
     }
 
     .home__social {
-      margin-top: 1rem;
+      margin-top: 1.5rem;
     }
 
     .home__social-icon {
@@ -124,46 +113,32 @@
       .home {
         flex-direction: column;
         align-items: center;
-      }
-      .home__information, .home__img {
-        max-width: 100%;
         text-align: center;
       }
-    }
 
-    @keyframes fadeInUp {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
+      .home__information {
+        max-width: 100%;
       }
     }
-
-    .anime-text, .section, .home__img img, .home__button {
-      animation: fadeInUp 1s ease forwards;
-      opacity: 0;
-    }
-
-    .anime-text:nth-child(1) { animation-delay: 0.2s; }
-    .anime-text:nth-child(2) { animation-delay: 0.4s; }
-    .anime-text:nth-child(3) { animation-delay: 0.6s; }
 
     .music-toggle {
       position: fixed;
       top: 20px;
       right: 20px;
       z-index: 999;
-      background: #ff4081;
+      background: orange;
       color: white;
       padding: 0.5rem 1rem;
       border: none;
       border-radius: 30px;
       cursor: pointer;
       font-weight: 600;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
+    }
+
+    .music-toggle:hover {
+      background-color: darkorange;
+      box-shadow: 0 0 15px orange;
     }
 
     #youtube-iframe {
@@ -173,11 +148,9 @@
 </head>
 
 <body>
-  <!-- Music toggle button -->
   <button class="music-toggle" onclick="toggleYouTubeMusic()">Play Music</button>
   <iframe id="youtube-iframe" width="0" height="0" src="" frameborder="0" allow="autoplay" allowfullscreen></iframe>
 
-  <!-- HEADER -->
   <header class="l-header">
     <nav class="nav bd-grid">
       <div><a href="#" class="nav__logo">Programmer</a></div>
@@ -186,6 +159,7 @@
           <li class="nav__item"><a href="#" class="nav__link">Home</a></li>
           <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
           <li class="nav__item"><a href="#services" class="nav__link">Services</a></li>
+          <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
           <li class="nav__item"><a href="#blog" class="nav__link">Blog</a></li>
           <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
         </ul>
@@ -193,30 +167,30 @@
     </nav>
   </header>
 
-  <!-- MAIN -->
   <main class="l-main bd-grid">
-    <div class="home">
+    <div class="home" data-aos="fade-up">
       <div class="home__information">
-        <span class="home__pressent anime-text">Hello, My name is</span>
-        <h1 class="home__title anime-text">Vern Esg</h1>
-        <span class="home__skill anime-text">Web Developer</span>
-        <div><a href="#services" class="home__button anime-text">Bot Maker</a></div>
+        <span class="home__pressent">Hello, My name is</span>
+        <h1 class="home__title">Vern Esg</h1>
+        <span class="home__skill">Web Developer</span>
+        <div class="home__social">
+          <ion-icon name="logo-facebook" class="home__social-icon"></ion-icon>
+          <ion-icon name="logo-instagram" class="home__social-icon"></ion-icon>
+          <ion-icon name="logo-twitter" class="home__social-icon"></ion-icon>
+        </div>
       </div>
-      <div class="home__img"><img src="https://i.imgur.com/bfELRaR.jpeg" alt="Profile Image" /></div>
-      <div class="home__social">
-        <ion-icon name="logo-facebook" class="home__social-icon"></ion-icon>
-        <ion-icon name="logo-instagram" class="home__social-icon"></ion-icon>
-        <ion-icon name="logo-twitter" class="home__social-icon"></ion-icon>
+      <div class="home__img">
+        <img src="https://i.imgur.com/bfELRaR.jpeg" alt="Profile Image" />
       </div>
     </div>
 
     <!-- Sections -->
-    <section id="about" class="section">
+    <section id="about" class="section" data-aos="fade-right">
       <h2>About Me</h2>
       <p>I am Vern Esg, a passionate web developer who builds clean and creative websites.</p>
     </section>
 
-    <section id="services" class="section">
+    <section id="services" class="section" data-aos="fade-left">
       <h2>Services</h2>
       <ul>
         <li>Responsive Web Development</li>
@@ -225,22 +199,55 @@
       </ul>
     </section>
 
-    <section id="blog" class="section">
+    <section id="skills" class="section" data-aos="zoom-in">
+      <h2>Skills</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+        <div style="flex: 1; min-width: 200px;">
+          <h4>Frontend</h4>
+          <ul>
+            <li><i class="fab fa-html5"></i> HTML5</li>
+            <li><i class="fab fa-css3-alt"></i> CSS3 & SCSS</li>
+            <li><i class="fab fa-js-square"></i> JavaScript</li>
+            <li><i class="fab fa-react"></i> React.js</li>
+          </ul>
+        </div>
+        <div style="flex: 1; min-width: 200px;">
+          <h4>Backend</h4>
+          <ul>
+            <li><i class="fab fa-node-js"></i> Node.js</li>
+            <li><i class="fas fa-server"></i> Express</li>
+            <li><i class="fab fa-php"></i> PHP</li>
+            <li><i class="fas fa-database"></i> MySQL</li>
+          </ul>
+        </div>
+        <div style="flex: 1; min-width: 200px;">
+          <h4>Tools</h4>
+          <ul>
+            <li><i class="fab fa-git-alt"></i> Git & GitHub</li>
+            <li><i class="fas fa-code"></i> VS Code</li>
+            <li><i class="fab fa-figma"></i> Figma</li>
+            <li><i class="fas fa-fire"></i> Firebase</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="blog" class="section" data-aos="fade-up">
       <h2>Blog</h2>
       <p>Coming soon! Here I’ll share tips, tutorials, and insights into modern web development.</p>
     </section>
 
-     <section id="achievements" class="section">
-     <h2>achievements</h2>
+    <section id="achievements" class="section" data-aos="flip-up">
+      <h2>Achievements</h2>
+      <ul>
+        <li>Achieving High School Diploma</li>
+        <li>Certified in Online Programming</li>
+        <li>GitHub Repository Maker</li>
+        <li>Second-Year College Student</li>
+      </ul>
+    </section>
 
-         <ul> 
-              <li>Achieving High shool Deploma</>
-              <li>Certified at online programming</>
-              <li>GitHub repository maker</>
-              <li>Second year College students</>
-          </ul>
-
-    <section id="contact" class="section">
+    <section id="contact" class="section" data-aos="fade-up">
       <h2>Contact</h2>
       <form action="https://formspree.io/f/xyzwarbq" method="POST">
         <input type="text" name="name" placeholder="Your Name" required />
@@ -251,19 +258,18 @@
     </section>
   </main>
 
-  <!-- ICONS -->
   <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
-
-  <!-- YouTube Music Player Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    let isPlaying = false;
+    AOS.init({ duration: 1000 });
 
+    let isPlaying = false;
     function toggleYouTubeMusic() {
       const iframe = document.getElementById("youtube-iframe");
       const button = document.querySelector(".music-toggle");
 
       if (!isPlaying) {
-        iframe.src = "https://www.youtube.com/embed/JGwWNGJdvx8?autoplay=1&loop=1&playlist=JGwWNGJdvx8";
+        iframe.src = "https://www.youtube.com/embed/JGwWNGJdvx8?autoplay=1&loop=1&playlist=Ukko12nzYcI";
         button.textContent = "Pause Music";
         isPlaying = true;
       } else {
@@ -272,12 +278,6 @@
         isPlaying = false;
       }
     }
-
-    // Reveal animation
-    window.addEventListener("DOMContentLoaded", () => {
-      document.querySelectorAll('.anime-text, .section, .home__img img, .home__button')
-        .forEach(el => el.style.opacity = 1);
-    });
   </script>
 </body>
 </html>
